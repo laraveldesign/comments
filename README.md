@@ -14,6 +14,9 @@ You can install the package via composer:
 composer require laraveldesign/comments
 ```
 
+## Demo
+Visit https://laraveldesign.com/packages for a demo.
+
 ## Usage
 
 ``` php
