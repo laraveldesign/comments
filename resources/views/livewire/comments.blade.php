@@ -56,19 +56,10 @@
                 </ul>
             </div>
         @endif
-        <form wire:submit.prevent="save">
-            <div class="flex">
-                <form class="m-4 flex">
-                    <input wire:model="comment"
-                           class="focus:outline-none flex flex-grow rounded-l-lg px-4 py-2 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
-                           placeholder="Write a comment..."/>
-                    <button
-                        class="focus:outline-none px-8 rounded-r-lg bg-yellow-400  text-gray-800 font-bold px-4 py-1 uppercase border-yellow-500 border-t border-b border-r">
-                        Comment
-                    </button>
-                </form>
-            </div>
-
+        <form class="mt-2" wire:submit.prevent="save">
+            <textarea wire:model="comment" class="focus:outline-none w-full rounded-lg text-gray-800 p-4"></textarea>
+            <button class="focus:outline-none w-full rounded-lg bg-yellow-400 text-gray-800 font-bold px-4 py-1 uppercase">Comment</button>
         </form>
+
     @endauth
 </div>
