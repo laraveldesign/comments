@@ -1,0 +1,54 @@
+{
+    "name": "laraveldesign/comments",
+    "description": "Adds comment functionality to Laravel websites using the T.A.L.L. stack.",
+    "keywords": [
+        "laraveldesign",
+        "comments"
+    ],
+    "homepage": "https://github.com/laraveldesign/comments",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Shane Barron",
+            "email": "cshanebarron@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "laraveldesign/trix": "*",
+        "laraveldesign/like-button": "*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laraveldesign\\Comments\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Laraveldesign\\Comments\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Laraveldesign\\Comments\\CommentsServiceProvider"
+            ],
+            "aliases": {
+                "Comments": "Laraveldesign\\Comments\\CommentsFacade"
+            }
+        }
+    }
+}
