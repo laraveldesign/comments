@@ -7,7 +7,9 @@
             <!-- Activity feed-->
             <div class="flow-root">
                 <ul role="list" class="-mb-8">
+ 
                     @foreach($comments as $comment)
+
                     <li>
                         <div class="relative pb-8">
 
@@ -46,11 +48,12 @@
                     @endforeach
                 </ul>
             </div>
+            @auth
             <div class="mt-6">
                 <div class="flex space-x-3">
                     <div class="flex-shrink-0">
                         <div class="relative">
-                            <img class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-400 ring-8 ring-white" src="{{$comment->user()->profile_photo_url}}" alt="{{$comment->user()->name}}">
+                            <img class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-400 ring-8 ring-white" src="{{auth()->user()->profile_photo_url}}" alt="{{auth()->user()->name}}">
 
                             <span class="absolute -bottom-0.5 -right-1 rounded-tl bg-white px-0.5 py-px">
                                 <svg class="h-5 w-5 text-gray-400" x-description="Heroicon name: mini/chat-bubble-left-ellipsis" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -71,6 +74,7 @@
                     </div>
                 </div>
             </div>
+            @endauth
         </div>
     </div>
 </div>
