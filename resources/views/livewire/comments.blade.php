@@ -7,7 +7,7 @@
             <!-- Activity feed-->
             <div class="flow-root">
                 <ul role="list" class="-mb-8">
- 
+
                     @foreach($comments as $comment)
 
                     <li>
