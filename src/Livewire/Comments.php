@@ -16,12 +16,15 @@ class Comments extends Component
     }
 
     public function post() {
-        $comment = new Comment();
-        $comment->user_id = auth()->user()->id;
-        $comment->model_class = get_class($this->model);
-        $comment->model_id = $this->model->id;
-        $comment->comment = $this->comment;
-        $comment->save();
+        if($this->comment) {
+            $comment = new Comment();
+            $comment->user_id = auth()->user()->id;
+            $comment->model_class = get_class($this->model);
+            $comment->model_id = $this->model->id;
+            $comment->comment = $this->comment;
+            $comment->save();
+        }
+
         $this->reset([
             'comment'
         ]);
