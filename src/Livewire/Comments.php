@@ -30,6 +30,12 @@ class Comments extends Component
         ]);
     }
 
+    public function deleteComment($id) {
+        $comment = Comment::find($id);
+        $comment->delete();
+        $this-render();
+    }
+
     public function render()
     {
         return view('comments::livewire.comments',
