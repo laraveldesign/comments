@@ -36,7 +36,32 @@
                                         {!! $comment->comment !!}
                                     </div>
                                 </div>
-
+                                    <div class="flex items-center justify-center" x-data="{
+                                        show:false,
+                                        interval:false,
+                                        countdown:5,
+                                        startTimer() {
+                                            this.show=true;
+                                            this.interval = setInterval(()=>{
+                                                this.countdown--;
+                                                if(this.countdown <=0) {
+                                                    this.stopTimer();
+                                                }
+                                            },1000);
+                                        },
+                                        stopTimer() {
+                                            this.show=false;
+                                            clearInterval(this.interval);
+                                            this.countdown = 5;
+                                        }
+                                    }">
+                                        <x-button.danger @click="startTimer()" x-show="!show">
+                                            <x-icon.trash class="w-4 h-4 fill-white"/>
+                                        </x-button.danger>
+                                        <x-button.danger wire:click="deleteComment({{$comment->id}})"   x-show="show" x-cloak>
+                                            <div class="w-4 h-4" x-text="countdown"></div>
+                                        </x-button.danger>
+                                    </div>
                             </div>
                             <div class="ml-10 mt-2">
                                 <livewire:like-button :wire:key="'like_button_'.$comment->id" :model="$comment"></livewire:like-button>
