@@ -56,7 +56,7 @@
                                         }
                                     }">
                                         <x-button.danger @click="startTimer()" x-show="!show">
-                                            <x-icon.trash class="w-4 h-4 fill-white"/>
+                                            <x-fontawesome::trash class="w-4 h-4 fill-white"/>
                                         </x-button.danger>
                                         <x-button.danger wire:click="deleteComment({{$comment->id}})"   x-show="show" x-cloak>
                                             <div class="w-4 h-4" x-text="countdown"></div>
